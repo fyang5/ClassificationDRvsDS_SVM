@@ -4,10 +4,10 @@
 % (including two clinical fetaures and 23 radiological features)
 %%%%%%%%%%%%%%%%%%%%%%%%
 %% svm classification
-load('.\ForReviewers\testData.mat');
-load('.\ForReviewers\testDataLabel.mat');
-load('.\ForReviewers\TrainData.mat');
-load('.\ForReviewers\TrainDataLabel.mat');
+load('testData.mat');
+load('testDataLabel.mat');
+load('TrainData.mat');
+load('TrainDataLabel.mat');
 SVMModel = fitcsvm(trainDataSMOTE,trainLabelSMOTE,'Standardize',true,'ClassNames',[-1,1],'KernelFunction','RBF','KernelScale','auto');
 [predictedLabels,scorePred] = predict(SVMModel,testDataSMOTE);
 testlab_aug = testLabelSMOTE;
